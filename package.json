@@ -1,13 +1,15 @@
 {
-  "name": "proxy",
+  "name": "static-ip-proxy",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npm run buildApp && npm run buildContainer",
+    "buildContainer": "docker build -t codebuero/static-ip-proxy .",
+    "buildApp": "rm -rf build && mkdir -p build && cp -r package.json index.js build"
   },
-  "author": "andirotter",
-  "license": "ISC",
+  "author": "https://github.com/codebuero",
+  "license": "MIT",
   "dependencies": {
     "superagent": "^1.3.0",
     "superagent-as-promised": "^3.2.0"
