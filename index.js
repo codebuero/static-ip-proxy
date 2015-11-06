@@ -32,10 +32,6 @@ var requestHandler = function(requestInstance, responseInstance){
     this.emit('end').end();
   });
 
-  RequestStream.on('end', function(error){
-    this.emit('end').end();
-  }); 
- 
   RequestStream.pipe(responseInstance);
  
 };
